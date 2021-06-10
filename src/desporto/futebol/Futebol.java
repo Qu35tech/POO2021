@@ -32,7 +32,7 @@ public class Futebol extends Desporto {
     public void remTreinador(TreinadorFutebol jogador){};
 
     public void addJogadorToEquipa(JogadorFutebol jogador, EquipaFutebol equipa, int num) {
-        jogador.setEquipa(equipa);
+        jogador.setEquipa(equipa.getNome());
         this.equipas.get(equipa.getNome().hashCode()).addJogador(jogador,num);
     }
 

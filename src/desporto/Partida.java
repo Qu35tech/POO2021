@@ -2,19 +2,27 @@ package desporto;
 
 import util.Pair;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public abstract class Partida {
 
-    private LocalDateTime data;
+    private LocalDate data;
 
     private Pair<Integer,Integer> resultado;
 
-    private Equipa equipaCasa;
-    private Equipa equipaFora;
+    private String equipaCasa;
+    private String equipaFora;
 
     public Partida() {
         resultado = new Pair<>(0,0);
+    }
+
+    public Partida(LocalDate data, Pair<Integer, Integer> resultado, String equipaCasa, String equipaFora) {
+        this.data = data;
+        this.resultado = resultado;
+        this.equipaCasa = equipaCasa;
+        this.equipaFora = equipaFora;
     }
 
     void addScoreHome(int score) {
@@ -24,27 +32,27 @@ public abstract class Partida {
         this.resultado.second+=score;
     }
 
-    public LocalDateTime getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
-    public Equipa getEquipaCasa() {
+    public String getEquipaCasa() {
         return equipaCasa;
     }
 
-    public void setEquipaCasa(Equipa equipaCasa) {
+    public void setEquipaCasa(String equipaCasa) {
         this.equipaCasa = equipaCasa;
     }
 
-    public Equipa getEquipaFora() {
+    public String getEquipaFora() {
         return equipaFora;
     }
 
-    public void setEquipaFora(Equipa equipaFora) {
+    public void setEquipaFora(String equipaFora) {
         this.equipaFora = equipaFora;
     }
 }

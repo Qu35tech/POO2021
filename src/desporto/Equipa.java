@@ -13,6 +13,11 @@ public abstract class Equipa {
     //número -> jogador
     private Map<Integer, Jogador> jogadores;
 
+    public Equipa(String nome) {
+        this.nome = nome;
+        this.jogadores = new HashMap<>();
+    }
+
     public Equipa(String nome, String diminutivo) {
         this.nome = nome;
         this.diminutivo = diminutivo;
@@ -36,9 +41,6 @@ public abstract class Equipa {
     public Jogador getJogador(int num) {
         return this.jogadores.get(num);
     }
-
-
-
 
     public String getNome() {
         return nome;

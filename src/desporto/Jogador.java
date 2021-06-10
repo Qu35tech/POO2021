@@ -3,16 +3,16 @@ package desporto;
 public abstract class Jogador {
 
     private final String nome;
-    private int idade;
-    private Equipa equipa;
+    private int numero;
+    private String equipa;
 
-    public Jogador(String nome, int idade) {
+    public Jogador(String nome, int numero) {
         this.nome = nome;
-        this.idade = idade;
+        this.numero = numero;
         this.equipa = null;
     }
 
-    public Jogador(String nome, int idade, Equipa equipa) {
+    public Jogador(String nome, int idade, String equipa) {
         this(nome,idade);
         this.equipa = equipa;
     }
@@ -21,19 +21,19 @@ public abstract class Jogador {
         return nome;
     }
 
-    public int getIdade() {
-        return idade;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public Equipa getEquipa() {
+    public String getEquipa() {
         return equipa;
     }
 
-    public void setEquipa(Equipa equipa) {
+    public void setEquipa(String equipa) {
         this.equipa = equipa;
     }
 }

@@ -10,8 +10,8 @@ public class EquipaFutebol extends Equipa {
 
     private TreinadorFutebol treinador;
 
-    public EquipaFutebol(String nome, String diminutivo) {
-        super(nome, diminutivo);
+    public EquipaFutebol(String nome) {
+        super(nome);
     }
 
     public EquipaFutebol(String nome, String diminutivo, Map<Integer, Jogador> jogadores) {
@@ -36,6 +36,11 @@ public class EquipaFutebol extends Equipa {
 
     public void setTreinador(TreinadorFutebol treinador) {
         this.treinador = treinador;
+    }
+
+    public static EquipaFutebol parse(String input){
+        String[] campos = input.split(",");
+        return new EquipaFutebol(campos[0]);
     }
 
     public EquipaFutebol clone() {
