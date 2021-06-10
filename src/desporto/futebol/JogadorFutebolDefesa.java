@@ -24,6 +24,12 @@ public class JogadorFutebolDefesa extends JogadorFutebol {
         super(j);
     }
 
+    public JogadorFutebolDefesa(String nome, int numero, int velocidade, int resistencia, int destreza, int impulsao, int cabeca, int remate, int passe, int corte, int alívio) {
+        super(nome, numero, velocidade, resistencia, destreza, impulsao, cabeca, remate, passe);
+        this.corte=corte;
+        this.alivio=alívio;
+    }
+
     public int getCorte() {
         return corte;
     }
