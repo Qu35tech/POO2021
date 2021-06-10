@@ -44,7 +44,7 @@ public class JogadorFutebol extends Jogador {
     }
 
     public JogadorFutebol(JogadorFutebol j) {
-        super(j.getNome(), j.getNumero());
+        super(j.getNome(), j.getNumero(), j.getEquipa());
         this.velocidade = j.getVelocidade();
         this.resistencia = j.getResistencia();
         this.destreza = j.getDestreza();
@@ -113,5 +113,11 @@ public class JogadorFutebol extends Jogador {
     @Override
     public JogadorFutebol clone() {
         return new JogadorFutebol(this);
+    }
+
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append(this.getNome() + " >> " + this.getEquipa());
+        return s.toString();
     }
 }

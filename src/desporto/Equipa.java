@@ -65,4 +65,14 @@ public abstract class Equipa {
     public void setJogadores(Map<Integer, Jogador> jogadores) {
         this.jogadores = jogadores;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append(this.getNome()+"\n");
+        for(Jogador j : jogadores.values()) {
+            s.append(j.toString() + "\n");
+        }
+        return s.toString();
+    }
 }

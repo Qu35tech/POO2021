@@ -52,8 +52,8 @@ public class JogadorFutebolDefesa extends JogadorFutebol {
                 Integer.parseInt(campos[8]));
     }
 
-    @Override
+    /*@Override
     protected JogadorFutebolDefesa clone() {
         return new JogadorFutebolDefesa(this);
-    }
+    }*/
 }

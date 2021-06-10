@@ -55,4 +55,16 @@ public abstract class Partida {
     public void setEquipaFora(String equipaFora) {
         this.equipaFora = equipaFora;
     }
+
+    public String getResultado() {
+        return new String(this.resultado.first.toString()+"-"+this.resultado.second.toString());
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append(this.getEquipaCasa() + " vs " + this.getEquipaFora() + ", " + this.getData() + "\n");
+        s.append(this.getResultado());
+        return s.toString();
+    }
 }

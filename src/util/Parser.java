@@ -1,7 +1,6 @@
 package util;
 
 import desporto.futebol.*;
-import util.LinhaIncorretaException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -14,7 +13,7 @@ import java.util.Map;
 public class Parser {
 
     public static void parse() throws LinhaIncorretaException {
-        List<String> linhas = lerFicheiro("output.txt");
+        List<String> linhas = lerFicheiro("C:\\Users\\vasco\\Github\\POO2021\\src\\logs.txt");
         Map<String, EquipaFutebol> equipas = new HashMap<>(); //nome, equipa
         Map<Integer, JogadorFutebol> jogadores = new HashMap<>(); //numero, jogador
         List<PartidaFutebol> jogos = new ArrayList<>();
@@ -82,7 +81,9 @@ public class Parser {
     public static List<String> lerFicheiro(String nomeFich) {
         List<String> lines;
         try { lines = Files.readAllLines(Paths.get(nomeFich), StandardCharsets.UTF_8); }
-        catch(IOException exc) { lines = new ArrayList<>(); }
+        catch(IOException exc) {
+            System.out.println("Não foi possível abrir o ficheiro.");
+            lines = new ArrayList<>(); }
         return lines;
     }
 
