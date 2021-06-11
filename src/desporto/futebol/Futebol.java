@@ -17,7 +17,7 @@ public class Futebol extends Desporto {
 
     //identificadores
     Map<Integer,JogadorFutebol> jogadores;
-    Map<Integer,EquipaFutebol> equipas;
+    Map<String,EquipaFutebol> equipas;
     Map<Integer,TreinadorFutebol> treinadores;
     List<PartidaFutebol> historico;
 
@@ -33,20 +33,23 @@ public class Futebol extends Desporto {
     }
 
     public void addEquipa(EquipaFutebol equipa) {
-        this.equipas.put(equipa.getNome().hashCode(),equipa);
+        this.equipas.put(equipa.getNome(),equipa);
     }
 
     public void addTreinador(TreinadorFutebol treinador) {
         this.treinadores.put(treinador.getNome().hashCode(),treinador);
     }
 
-    public void remJogador(JogadorFutebol jogador){};
+    public void remJogador(JogadorFutebol jogador){
+        this.jogadores.remove(jogador);
+       // this.equipas.get(jogador.getEquipa()).getJogadores().remove(jogador.getNumero());
+    }
     public void remEquipa(EquipaFutebol jogador){};
     public void remTreinador(TreinadorFutebol jogador){};
 
     public void addJogadorToEquipa(JogadorFutebol jogador, EquipaFutebol equipa, int num) {
         jogador.setEquipa(equipa.getNome());
-        this.equipas.get(equipa.getNome().hashCode()).addJogador(jogador,num);
+        this.equipas.get(equipa.getNome()).addJogador(jogador,num);
     }
 
     public void parse() throws LinhaIncorretaException {
@@ -59,7 +62,7 @@ public class Futebol extends Desporto {
             switch (linhaPartida[0]) {
                 case "Equipa":
                     EquipaFutebol e = EquipaFutebol.parse(linhaPartida[1]);
-                    this.equipas.put(e.getNome().hashCode(), e);
+                    this.equipas.put(e.getNome(), e);
                     ultima = e;
                     break;
                 case "Guarda-Redes":
@@ -130,5 +133,37 @@ public class Futebol extends Desporto {
             System.out.println("Não foi possível abrir o ficheiro.");
             lines = new ArrayList<>(); }
         return lines;
+    }
+
+    public Map<Integer, JogadorFutebol> getJogadores() {
+        return jogadores;
+    }
+
+    public void setJogadores(Map<Integer, JogadorFutebol> jogadores) {
+        this.jogadores = jogadores;
+    }
+
+    public Map<String, EquipaFutebol> getEquipas() {
+        return equipas;
+    }
+
+    public void setEquipas(Map<String, EquipaFutebol> equipas) {
+        this.equipas = equipas;
+    }
+
+    public Map<Integer, TreinadorFutebol> getTreinadores() {
+        return treinadores;
+    }
+
+    public void setTreinadores(Map<Integer, TreinadorFutebol> treinadores) {
+        this.treinadores = treinadores;
+    }
+
+    public List<PartidaFutebol> getHistorico() {
+        return historico;
+    }
+
+    public void setHistorico(List<PartidaFutebol> historico) {
+        this.historico = historico;
     }
 }

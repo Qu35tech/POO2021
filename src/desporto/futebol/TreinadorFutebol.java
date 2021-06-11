@@ -11,12 +11,12 @@ public class TreinadorFutebol {
     private int treino;
     private int motivacao;
 
-    TreinadorFutebol(String nome) {
+    public TreinadorFutebol(String nome) {
         this.nome = nome;
         this.equipa = null;
     }
 
-    TreinadorFutebol(String nome, EquipaFutebol equipa) {
+    public TreinadorFutebol(String nome, EquipaFutebol equipa) {
         this.nome = nome;
         this.equipa = equipa;
     }

@@ -66,8 +66,7 @@ public abstract class Equipa {
         this.jogadores = jogadores;
     }
 
-    @Override
-    public String toString() {
+    public String print() {
         StringBuilder s = new StringBuilder();
         s.append(this.getNome()+"\n");
         for(Jogador j : jogadores.values()) {

@@ -49,11 +49,10 @@ public class View {
         return n;
     }
 
-    //--------------------cria jogador----------------
     public void criaJogadorView(){
 
-        System.out.println("Indique nome, número e equipa do jogador");
-
+        System.out.println("Indique nome, número e equipa do jogador que deseja criar");
+        System.out.print("ENTER após cada item");
     }
 
     public void querStats(){
@@ -85,9 +84,28 @@ public class View {
     public void StatsLateral(){System.out.println("Indique os atributos do jogador pela ordem abaixo ilustrada dando ENTER após cada um");
         System.out.print("nome, numero, velocidade, resistencia, destreza, impulsao, cabeca, remate, passe e cruzamento");}
 
-    public void removeJogadorView(String nome,int numero,String equipa){
-        System.out.println("Removido o Jogador");
-        System.out.println("Nome"+nome+"Número"+numero+"Equipa"+equipa);
+    public void removeJogador(){
+        System.out.println("Indique nome, número e equipa do jogador que deseja remover");
+        System.out.print("ENTER após cada item");
+    }
+
+    public void removeTreinador(){
+        System.out.println("Indique nome e equipa do treinador que deseja remover");
+        System.out.print("ENTER após cada item");
+    }
+
+    public void addTreinador(){
+        System.out.println("Indique nome e equipa do treinador que deseja adicionar");
+        System.out.print("ENTER após cada item");
+    }
+
+    public void transferencia(){
+        System.out.println("Indique o nome, equipa atual e equipa para a qual deseja transferir o jogador");
+        System.out.print("ENTER após cada item");
+    }
+
+    public void consultaEquipa(){
+        System.out.println("Indique o nome da equipa que pretende consultar");
     }
 
 }
