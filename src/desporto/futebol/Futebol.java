@@ -1,6 +1,8 @@
 package desporto.futebol;
 
 import desporto.Desporto;
+import desporto.Equipa;
+import desporto.Jogador;
 import util.LinhaIncorretaException;
 
 import java.io.IOException;
@@ -13,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 //principal agregador do desporto de futebol
-public class Futebol extends Desporto {
+public class Futebol extends Desporto implements FutebolI {
 
     //identificadores
     Map<Integer,JogadorFutebol> jogadores;
@@ -52,8 +54,18 @@ public class Futebol extends Desporto {
         this.equipas.get(equipa.getNome()).addJogador(jogador,num);
     }
 
+    public void transferencia(String nome,String equipaAtual, String equipaProx){
+        Jogador jogador;
+        jogador=this.equipas.get(equipaAtual).getJogador(nome.hashCode());
+
+        jogador.addEquipaToHistorico(this.equipas.get(jogador.getEquipa()));
+        this.equipas.get(jogador.getEquipa()).remJogador(jogador.getNumero());
+        jogador.setEquipa(equipaProx);
+        this.equipas.get(equipaProx).addJogador(jogador,jogador.getNumero());
+    }
+
     public void parse() throws LinhaIncorretaException {
-        List<String> linhas = lerFicheiro("C:\\Users\\vasco\\Github\\POO2021\\src\\logs.txt");
+        List<String> linhas = lerFicheiro("C:\\Users\\rafxi\\OneDrive\\Ambiente de Trabalho\\POO2021\\src\\logs.txt");
         EquipaFutebol ultima = null;
         JogadorFutebol j = null;
         String[] linhaPartida;
@@ -114,7 +126,7 @@ public class Futebol extends Desporto {
 
             }
         }
-
+/*
         //debug
         for (EquipaFutebol e : this.equipas.values()) {
             System.out.println(e.toString());
@@ -123,7 +135,7 @@ public class Futebol extends Desporto {
             System.out.println(jog.toString());
         }
 
-        System.out.println(this.jogadores.get("Vasco Mota Marques".hashCode()).toString());
+        System.out.println(this.jogadores.get("Vasco Mota Marques".hashCode()).toString());*/
     }
 
     public static List<String> lerFicheiro(String nomeFich) {

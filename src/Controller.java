@@ -3,9 +3,9 @@ import desporto.Jogador;
 import desporto.futebol.*;
 ;
 
-public class Controller {
-    View view;
-    Futebol futebol;
+public class Controller implements ControllerI {
+    ViewI view;
+    FutebolI futebol;
 
 
     public void criaJogador(){
@@ -122,7 +122,7 @@ public class Controller {
         equipa=view.lerLinha();
         proxEquipa=view.lerLinha();
 
-        //funcao de transferencia
+        futebol.transferencia(nome,equipa,proxEquipa);
 
     }
 
@@ -155,6 +155,17 @@ public class Controller {
         equipa=view.lerLinha();
         futebol.getEquipas().get(equipa).print();
     }
+
+    public void consultaJogador(){
+        String nome,equipa;
+        view.consultaJogador();
+        nome=view.lerLinha();
+        equipa=view.lerLinha();
+        futebol.getJogadores().get(nome.hashCode()).toString();
+        //outra maneira existe
+    }
+
+
 
 
 

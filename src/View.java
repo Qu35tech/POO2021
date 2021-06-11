@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static java.lang.Float.MAX_EXPONENT;
 
-public class View {
+public class View implements ViewI {
 
 
     public String lerLinha(){
@@ -104,8 +104,13 @@ public class View {
         System.out.print("ENTER após cada item");
     }
 
-    public void consultaEquipa(){
+    public void consultaEquipa() throws NullPointerException {
         System.out.println("Indique o nome da equipa que pretende consultar");
+    }
+
+    public void consultaJogador(){
+        System.out.println("Indique o nome e equipa do jogador que pretende consultar");
+        System.out.print("ENTER após cada item");
     }
 
 }
